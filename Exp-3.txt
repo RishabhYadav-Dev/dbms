@@ -1,4 +1,4 @@
-//create
+/*create*/
 CREATE Database Professionl_info;
 USE Professionl_info;
 Create table Solo_levelling (name varchar(20) NOT NULL, ROLL NO INT PRIMARY KEY, Rank char(30), Level int);
@@ -8,14 +8,14 @@ insert into Solo_levelling (name, ROLL_NO, Rank, Level) values ('Mr Gunwoo', 02,
 insert into Solo_levelling (name, ROLL_NO, Rank, Level)values('Cha_hii', 03, 'A', 46);
 insert into Solo_levelling (name, ROLL_NO, Rank, Level) values ('Igris', 04, 'A', 40);
 
-// Delete or Drop
+/* Delete or Drop*/
 delete from Solo_levelling where name= 'Cha_hii';
 
-//Alter
+/*Alter*/
 ALTER TABLE Solo_levelling ADD Phone_no int;
 
-//update
+/*update*/
 Update Solo_levelling set Age 35 where ROLL_NO = 4;
 
-//select
+/*select*/
 Select ROLL_NO name from Solo_levelling;
