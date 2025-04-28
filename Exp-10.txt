@@ -1,0 +1,63 @@
+CREATE TABLE Student_details (
+id INTEGER,
+addmission_no INTEGER,
+first_name VARCHAR(10),
+last_name VARCHAR(20),
+age INTEGER,
+city VARCHAR(20)
+);
+INSERT INTO Student_details (id, addmission_no, first_name, last_name, age, city)
+VALUES
+(1, 1001, 'ayush', 'Chaubey', 20, 'New York'),
+(2, 1002, 'Prashant', 'phatak', 22, 'Los Angeles'),
+(3, 1003, 'naman', 'bhalani', 19, 'Chicago'),
+(4, 1004, 'Nilesh', 'Yadav', 21, 'Houston');
+SELECT * FROM Student_details;
+
+CREATE TABLE fees (
+addmission_no INTEGER,
+course VARCHAR(20),
+amount_paid INTEGER
+);
+INSERT INTO fees (addmission_no, course, amount_paid)
+VALUES
+(1001, 'Math', 2000),
+(1001, 'English', 1500),
+(1002, 'History', 1800),
+(1003, 'Physics', 2500),
+(1003, 'Chemistry', 2200),
+(1004, 'Biology', 1900);
+SELECT * FROM fees;
+
+CREATE VIEW course_enrolled AS
+SELECT first_name, last_name, course, amount_paid
+FROM Student_details AS S
+INNER JOIN fees AS FON S.addmission_no = F.addmission_no;
+SELECT * FROM course_enrolled;
+
+CREATE TABLE Employee (
+Id INT PRIMARY KEY,
+Name VARCHAR(45),
+Salary INT,
+Gender VARCHAR(12),
+DepartmentId INT
+);
+INSERT INTO Employee VALUES
+(1, 'Steffan', 82000, 'Male', 3),
+(2, 'Amelie', 52000, 'Female', 2),
+(3, 'Antonio', 25000, 'male', 1),
+(4, 'Marco', 47000, 'Male', 2),
+(5, 'Eliana', 46000, 'Female', 3);
+SELECT * FROM Employee;
+
+CREATE TABLE Employee_Audit_Test ( Id INT IDENTITY, Audit_Action TEXT );
+CREATE TRIGGER trInsert Employee
+ON Employee FOR INSERT AS
+BEGIN
+DECLARE @Id INT
+SELECT @Id Id FROM inserted
+INSERT INTO Employee_Audit_Test
+VALUES ('New employee with Id CAST (@ID AS VARCHAR(10)) + is added at + CAST (GETDATE() AS VARCHAR(22)))
+END;
+INSERT INTO Employee VALUES (6, 'Peter', 62000, 'Male', 3);
+SELECT * FROM Employee_Audit_Test;
