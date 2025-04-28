@@ -1,0 +1,35 @@
+/*First-Table*/
+CREATE TABLE student (name VARCHAR(30), regno int);
+select * from student;
+Insert into student values ('Mohit', 1);
+Insert into student values ('Harsh', 2);
+Insert into student values ('Pavan', 3);
+Insert into student values ('Sumit', 4);
+Insert into student values ('Ronak', 5);
+select from student;
+
+/*Second-Table*/
+Create table marks (regno int, total int);
+select * from marks;
+Insert into marks values (1, 400);
+Insert into marks values (2,450);
+Insert into marks values (3, 300);
+Insert into marks values (4, 600);
+Insert into marks values (5, 300);
+select * from marks;
+
+/*Join*/
+Select * from student join marks 
+on student.regno = marks.regno;
+
+/*Left-Join*/
+Select * from student left join marks 
+on student.regno = marks.regno;
+
+/*Right-Join*/
+Select * from student right join marks 
+on student.regno = marks.regno;
+
+/*Full-Join*/
+SELECT * FROM student FULL JOIN marks 
+ON student.regno = marks.regno;
