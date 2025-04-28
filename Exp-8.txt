@@ -1,0 +1,37 @@
+CREATE Database STUDENT;
+USE STUDENT;
+CREATE TABLE students (student_id INT PRIMARY KEY, student_name VARCHAR(50), major VARCHAR(50));
+INSERT INTO students (student_id, student_name, major)
+VALUES
+(1, 'Mohit', 'Cybersecurity'),
+(2, 'Harsh', 'Database'),
+(3, 'Pavan ', 'Os'),
+(4, 'Sumit', 'maths'),
+(5, 'Aryan', 'graphics')
+Select *from students
+
+CREATE TABLE grades (grade_id INT PRIMARY KEY,
+student_id INT, course_name VARCHAR(50),
+grade DECIMAL(3, 2));
+INSERT INTO grades (grade_id, student_id, course_name, grade)
+VALUES
+(1, 1, 'Integration', 4.0), 
+(2, 1, 'Statistics', 3.5), 
+(3, 2, 'Algorithms', 3.9), 
+(4, 4, 'Laplace', 3.7),
+(5, 3, 'Inverse', 3.2);
+Select *from grades
+
+SELECT *FROM students
+WHERE major IN ('Cybersecurity', 'Os');
+
+SELECT *FROM students WHERE major NOT IN ('Os');
+
+SELECT *FROM students
+WHERE student_id = ANY (SELECT student_id FROM grades WHERE grade >= 3.7);'
+
+SELECT * FROM students
+WHERE student_id = ALL (SELECT student_id FROM grades WHERE grade >= 4.0);
+
+SELECT student_id, student_name, major,
+(SELECT AVG(grade) FROM grades WHERE grades.student_id = students.student_id) AS avg_grade FROM students;
