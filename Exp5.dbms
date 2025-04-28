@@ -1,0 +1,25 @@
+CREATE Database Hospital;
+use Hospital;
+CREATE LOGIN Hospital WITH PASSWORD = '1234';
+// Grant
+grant select on dbo.doctor to Rishabhy;
+Execute As user 'Rishabhy';
+select from Doctor;
+insert into Doctor values (2, 'Harsh', 'mumbi', 1400, 25);
+revert;
+
+//revoke
+revoke select on dbo.doctor to Rishabhy;
+Execute As user 'Rishabhy';
+select from Doctor;
+revert;
+
+BEGIN TRANSACTION;
+insert into Doctor values (5, 'Anaya', 'hyderabad', 1700,20);
+SAVE TRANSACTION Savepoint1;
+select from Doctor;
+
+insert into Doctor values (6, 'ram', 'hyderabad', 1700,20);
+select from Doctor;
+ROLLBACK TRANSACTION Savepoint1;
+select from Doctor;
