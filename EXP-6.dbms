@@ -1,0 +1,38 @@
+create database EMPLOYEES;
+USE EMPLOYEES;
+create table Employee (Emp_Id int primary key, Name varchar(20) Not null, Salary int);
+select from Employee;
+insert into Employee (Emp_Id, Name, Salary) values (205, 'Mohit', 1500);
+insert into Employee (Emp_Id, Name, Salary) values (206, 'Sumit', 2500);
+insert into Employee (Emp_Id, Name, Salary) values (207, 'Harsh', 3500);
+insert into Employee (Emp_Id, Name, Salary) values (208, 'Ronak', 2800);
+insert into Employee (Emp_Id, Name, Salary) values (209, 'Pavan', 4500);
+select from Employee;
+
+// Lower-case
+SELECT LOWER (Name) FROM Employee;
+select from Employee;
+
+// Upper-case
+SELECТ UPPER (Name) FROM Employee;
+
+//Length
+SELECT LEN(Name) FROM Employee;
+
+//Substring
+SELECT SUBSTRING(Name, 3, 2) FROM Employee;
+
+//Sum of Salary
+SELECT SUM(Salary) FROM Employee;
+
+//Average of Salary
+SELECT AVG(Salary) FROM Employee;
+
+// Count
+SELECТ COUNT(Emp_ID) FROM Employee;
+
+//Minimum from Salary
+SELECT MIN(Salary) FROM Employee;
+
+//Maxmimum Salary
+SELECТ MAX(Salary) FROM Employee;
