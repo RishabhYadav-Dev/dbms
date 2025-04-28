@@ -1,0 +1,21 @@
+//create
+CREATE Database Professionl_info;
+USE Professionl_info;
+Create table Solo_levelling (name varchar(20) NOT NULL, ROLL NO INT PRIMARY KEY, Rank char(30), Level int);
+SELECT FROM Solo_levelling:
+insert into Solo_levelling (name, ROLL_NO, Rank, Level) values ('Sung Jinwoo', 01, 'S', 50);
+insert into Solo_levelling (name, ROLL_NO, Rank, Level) values ('Mr Gunwoo', 02, 'S',49);
+insert into Solo_levelling (name, ROLL_NO, Rank, Level)values('Cha_hii', 03, 'A', 46);
+insert into Solo_levelling (name, ROLL_NO, Rank, Level) values ('Igris', 04, 'A', 40);
+
+// Delete or Drop
+delete from Solo_levelling where name= 'Cha_hii';
+
+//Alter
+ALTER TABLE Solo_levelling ADD Phone_no int;
+
+//update
+Update Solo_levelling set Age 35 where ROLL_NO = 4;
+
+//select
+Select ROLL_NO name from Solo_levelling;
