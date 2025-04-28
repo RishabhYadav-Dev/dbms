@@ -1,0 +1,22 @@
+CREATE Database Student;
+USE Student;
+// Create & insert
+create table student45(
+std_id int primary key,
+st_name varchar(20),
+age int
+);
+insert into student45(std_id,st_name, age) values (1, 'Mohit', 20)
+insert into student45(std_id, st_name, age) values (2, 'Rohit', 19)
+insert into student45(std_id,st_name, age) values (3, 'Chirag', 18)
+insert into student45(std_id, st_name, age) values (4, 'Vishal', 24)
+insert into student45(std_id, st_name, age) values (5, 'Sushi', 25)
+
+  //select
+select*from student45;
+
+//update
+update student45 set age 34 where age =24;
+
+//Delete
+delete from student45 where std_id=4;
